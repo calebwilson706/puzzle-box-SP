@@ -9,8 +9,8 @@ import Foundation
 
 
 public struct Point : Hashable {
-    var x : Int
-    var y : Int
+    public var x : Int
+    public var y : Int
     
     public func up() -> Point {
         return Point(x: x, y: y + 1)
