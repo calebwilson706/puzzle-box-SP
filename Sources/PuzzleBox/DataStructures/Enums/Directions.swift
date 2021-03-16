@@ -8,7 +8,7 @@
 import Foundation
 
 public enum Directions {
-    case NORTH, EAST, SOUTH, WEST
+    public case NORTH, EAST, SOUTH, WEST
     
     public func turnRight() -> Directions {
         switch self {

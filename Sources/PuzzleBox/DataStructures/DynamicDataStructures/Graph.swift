@@ -10,10 +10,14 @@ import Foundation
 
 public struct GraphVertex<T : Hashable> : Hashable {
     public var data : T
+    
+    public init(data : T){
+        self.data = data
+    }
 }
 
 public enum GraphEdgeType {
-    case directed, undirected
+    public case directed, undirected
 }
 
 
