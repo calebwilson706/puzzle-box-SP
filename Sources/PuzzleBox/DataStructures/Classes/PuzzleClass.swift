@@ -12,7 +12,7 @@ public protocol PuzzleClassProtocol {
     func part2() -> Void 
 }
 
-public class PuzzleClass {
+open class PuzzleClass {
     public var inputStringUnparsed : String?
     
     public init(filePath : String?) {
