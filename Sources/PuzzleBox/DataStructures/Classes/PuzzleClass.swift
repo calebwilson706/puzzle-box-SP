@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol PuzzleClassProtocol {
+public protocol PuzzleClassProtocol {
     func part1() -> Void
     func part2() -> Void 
 }
 
-class PuzzleClass {
+public class PuzzleClass {
     var inputStringUnparsed : String?
     
     init(filePath : String?) {

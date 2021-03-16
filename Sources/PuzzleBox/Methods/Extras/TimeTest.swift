@@ -7,7 +7,7 @@
 
 import Foundation
 
-func timeTest(call : () -> Void, num : Int, factor : Double = 1.0){
+public func timeTest(call : () -> Void, num : Int, factor : Double = 1.0){
     let start = CFAbsoluteTimeGetCurrent()
     call()
     print("test \(num) : \((CFAbsoluteTimeGetCurrent() - start)*factor)")

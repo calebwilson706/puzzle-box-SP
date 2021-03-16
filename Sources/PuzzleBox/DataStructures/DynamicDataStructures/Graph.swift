@@ -8,22 +8,22 @@
 import Foundation
 
 
-struct GraphVertex<T : Hashable> : Hashable {
+public struct GraphVertex<T : Hashable> : Hashable {
     var data : T
 }
 
-enum GraphEdgeType {
+public enum GraphEdgeType {
     case directed, undirected
 }
 
 
-struct GraphEdge<T : Hashable> : Hashable {
+public struct GraphEdge<T : Hashable> : Hashable {
     var source : GraphVertex<T>
     var destination : GraphVertex<T>
     var weight : Double?
 }
 
-protocol Graphable {
+public protocol Graphable {
   associatedtype Element: Hashable
   
   
@@ -34,7 +34,7 @@ protocol Graphable {
     
 }
 
-class AdjacencyList<T : Hashable> {
+public class AdjacencyList<T : Hashable> {
     var adjacencyDict : [GraphVertex<T> : [GraphEdge<T>]] = [:]
     
     func addDirectedEdge(from source: GraphVertex<Element>, to destination: GraphVertex<Element>, weight: Double?) {
@@ -52,9 +52,9 @@ class AdjacencyList<T : Hashable> {
 
 
 extension AdjacencyList : Graphable {
-    typealias Element = T
+    public typealias Element = T
     
-    func createVertex(data: T) -> GraphVertex<T> {
+    public func createVertex(data: T) -> GraphVertex<T> {
         let vertex = GraphVertex<T>(data: data)
         
         if adjacencyDict[vertex] == nil {
@@ -64,7 +64,7 @@ extension AdjacencyList : Graphable {
         return vertex
     }
     
-    func add(_ type: GraphEdgeType, from source: GraphVertex<T>, to destination: GraphVertex<T>, weight: Double?) {
+    public func add(_ type: GraphEdgeType, from source: GraphVertex<T>, to destination: GraphVertex<T>, weight: Double?) {
         switch type {
         case .directed:
             addDirectedEdge(from: source, to: destination, weight: weight)
@@ -73,11 +73,11 @@ extension AdjacencyList : Graphable {
         }
     }
     
-    func weight(from source: GraphVertex<T>, to destination: GraphVertex<T>) -> Double? {
+    public func weight(from source: GraphVertex<T>, to destination: GraphVertex<T>) -> Double? {
         return adjacencyDict[source]?.first { $0.destination == destination }?.weight
     }
     
-    func edges(from source: GraphVertex<T>) -> [GraphEdge<T>]? {
+    public func edges(from source: GraphVertex<T>) -> [GraphEdge<T>]? {
         return adjacencyDict[source]
     }
 }

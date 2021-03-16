@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Directions {
+public enum Directions {
     case NORTH, EAST, SOUTH, WEST
     
     func turnRight() -> Directions {

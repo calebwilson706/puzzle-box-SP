@@ -8,7 +8,7 @@
 import Foundation
 
 
-func sumValuesUsingMethod<T>(in list : [T], using method : (T) -> Int) -> Int {
+public func sumValuesUsingMethod<T>(in list : [T], using method : (T) -> Int) -> Int {
     return list.reduce(0, { acc, next in
         acc + method(next)
     })
