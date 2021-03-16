@@ -8,8 +8,8 @@
 import Foundation
 
 public protocol PuzzleClassProtocol {
-    public func part1() -> Void
-    public func part2() -> Void 
+    func part1() -> Void
+    func part2() -> Void 
 }
 
 public class PuzzleClass {

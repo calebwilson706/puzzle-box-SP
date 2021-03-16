@@ -17,7 +17,7 @@ public struct GraphVertex<T : Hashable> : Hashable {
 }
 
 public enum GraphEdgeType {
-    public case directed, undirected
+    case directed, undirected
 }
 
 
@@ -31,10 +31,10 @@ public protocol Graphable {
   associatedtype Element: Hashable
   
   
-  public func createVertex(data: Element) -> GraphVertex<Element>
-  public func add(_ type: GraphEdgeType, from source: GraphVertex<Element>, to destination: GraphVertex<Element>, weight: Double?)
-  public func weight(from source: GraphVertex<Element>, to destination: GraphVertex<Element>) -> Double?
-  public func edges(from source: GraphVertex<Element>) -> [GraphEdge<Element>]?
+  func createVertex(data: Element) -> GraphVertex<Element>
+  func add(_ type: GraphEdgeType, from source: GraphVertex<Element>, to destination: GraphVertex<Element>, weight: Double?)
+  func weight(from source: GraphVertex<Element>, to destination: GraphVertex<Element>) -> Double?
+  func edges(from source: GraphVertex<Element>) -> [GraphEdge<Element>]?
     
 }
 
