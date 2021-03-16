@@ -9,7 +9,7 @@ import Foundation
 
 
 public struct GraphVertex<T : Hashable> : Hashable {
-    var data : T
+    public var data : T
 }
 
 public enum GraphEdgeType {
@@ -18,31 +18,31 @@ public enum GraphEdgeType {
 
 
 public struct GraphEdge<T : Hashable> : Hashable {
-    var source : GraphVertex<T>
-    var destination : GraphVertex<T>
-    var weight : Double?
+    public var source : GraphVertex<T>
+    public var destination : GraphVertex<T>
+    public var weight : Double?
 }
 
 public protocol Graphable {
   associatedtype Element: Hashable
   
   
-  func createVertex(data: Element) -> GraphVertex<Element>
-  func add(_ type: GraphEdgeType, from source: GraphVertex<Element>, to destination: GraphVertex<Element>, weight: Double?)
-  func weight(from source: GraphVertex<Element>, to destination: GraphVertex<Element>) -> Double?
-  func edges(from source: GraphVertex<Element>) -> [GraphEdge<Element>]?
+  public func createVertex(data: Element) -> GraphVertex<Element>
+  public func add(_ type: GraphEdgeType, from source: GraphVertex<Element>, to destination: GraphVertex<Element>, weight: Double?)
+  public func weight(from source: GraphVertex<Element>, to destination: GraphVertex<Element>) -> Double?
+  public func edges(from source: GraphVertex<Element>) -> [GraphEdge<Element>]?
     
 }
 
 public class AdjacencyList<T : Hashable> {
     var adjacencyDict : [GraphVertex<T> : [GraphEdge<T>]] = [:]
     
-    func addDirectedEdge(from source: GraphVertex<Element>, to destination: GraphVertex<Element>, weight: Double?) {
+    public func addDirectedEdge(from source: GraphVertex<Element>, to destination: GraphVertex<Element>, weight: Double?) {
         let newEdge = GraphEdge(source: source, destination: destination, weight: weight)
         adjacencyDict[source]?.append(newEdge)
     }
     
-    func addUndirectedEdge(vertices : (GraphVertex<Element>, GraphVertex<Element>), weight: Double?) {
+    public func addUndirectedEdge(vertices : (GraphVertex<Element>, GraphVertex<Element>), weight: Double?) {
         let (source, destination) = vertices
         addDirectedEdge(from: source, to: destination, weight: weight)
         addDirectedEdge(from: destination, to: source, weight: weight)

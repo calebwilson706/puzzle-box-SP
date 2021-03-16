@@ -12,28 +12,28 @@ public struct Point : Hashable {
     var x : Int
     var y : Int
     
-    func up() -> Point {
+    public func up() -> Point {
         return Point(x: x, y: y + 1)
     }
-    func down() -> Point {
+    public func down() -> Point {
         return Point(x: x, y: y - 1)
     }
-    func right() -> Point {
+    public func right() -> Point {
         return Point(x: x + 1, y: y)
     }
-    func left() -> Point {
+    public func left() -> Point {
         return Point(x: x - 1, y: y)
     }
-    func upLeft() -> Point {
+    public func upLeft() -> Point {
         return Point(x: x - 1, y: y + 1)
     }
-    func downLeft() -> Point {
+    public func downLeft() -> Point {
         return Point(x: x - 1, y: y - 1)
     }
-    func upRight() -> Point {
+    public func upRight() -> Point {
         return Point(x: x + 1, y: y + 1)
     }
-    func downRight() -> Point {
+    public func downRight() -> Point {
         return Point(x: x + 1, y: y - 1)
     }
 }

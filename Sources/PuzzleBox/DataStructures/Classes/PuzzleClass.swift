@@ -8,14 +8,14 @@
 import Foundation
 
 public protocol PuzzleClassProtocol {
-    func part1() -> Void
-    func part2() -> Void 
+    public func part1() -> Void
+    public func part2() -> Void 
 }
 
 public class PuzzleClass {
-    var inputStringUnparsed : String?
+    public var inputStringUnparsed : String?
     
-    init(filePath : String?) {
+    public init(filePath : String?) {
         if let path = filePath {
             do {
                 self.inputStringUnparsed = try String(contentsOfFile: path)

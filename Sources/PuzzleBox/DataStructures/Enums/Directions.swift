@@ -10,7 +10,7 @@ import Foundation
 public enum Directions {
     case NORTH, EAST, SOUTH, WEST
     
-    func turnRight() -> Directions {
+    public func turnRight() -> Directions {
         switch self {
         case .NORTH:
             return .EAST
@@ -23,7 +23,7 @@ public enum Directions {
         }
     }
     
-    func turnLeft() -> Directions {
+    public func turnLeft() -> Directions {
         switch self {
         case .NORTH:
             return .WEST
