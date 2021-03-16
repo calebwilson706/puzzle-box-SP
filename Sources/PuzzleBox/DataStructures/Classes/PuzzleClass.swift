@@ -12,18 +12,4 @@ public protocol PuzzleClassProtocol {
     func part2() -> Void 
 }
 
-open class PuzzleClass {
-    public var inputStringUnparsed : String?
-    
-    public init(filePath : String?) {
-        if let path = filePath {
-            do {
-                self.inputStringUnparsed = try String(contentsOfFile: path)
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-    }
-}
-
 
