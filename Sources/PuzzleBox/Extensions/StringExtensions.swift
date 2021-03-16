@@ -11,10 +11,8 @@ extension StringProtocol {
     subscript(offset: Int) -> Character {
         self[index(startIndex, offsetBy: offset)]
     }
-}
-
-extension String {
-    func doesContainDoubleLetter() -> Bool {
+    
+    func containsDoubleLetter() -> Bool {
         let chars = [Character](self)
         
         for index in 0 ..< (chars.count - 1) {

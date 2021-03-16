@@ -2,13 +2,12 @@ import XCTest
 @testable import PuzzleBox
 
 final class PuzzleBoxTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
+    
+    func testAddUpMethod() {
+        
     }
-
+    
     static var allTests = [
-        ("testExample", testExample),
+        ("Sequence Tests", testAddUpMethod),
     ]
 }
