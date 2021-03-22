@@ -15,8 +15,6 @@ final class PuzzleBoxTests: XCTestCase {
         root.addChild(newValue: 30)
         root.addChild(newValue: 37)
         print(root.asString)
-
-        XCTAssertTrue(21 == 26)
     }
     
     static var allTests = [
