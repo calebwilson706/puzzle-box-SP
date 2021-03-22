@@ -10,7 +10,7 @@ import var CommonCrypto.CC_MD5_DIGEST_LENGTH
 import func CommonCrypto.CC_MD5
 import typealias CommonCrypto.CC_LONG
 
-public func MD5(string: String) -> Data {
+public func MD5(string: String) -> String {
     let length = Int(CC_MD5_DIGEST_LENGTH)
     let messageData = string.data(using:.utf8)!
     var digestData = Data(count: length)
@@ -24,5 +24,5 @@ public func MD5(string: String) -> Data {
             return 0
         }
     }
-    return digestData
+    return digestData.map{  String(format: "%02hhx", $0) }.joined()
 }
