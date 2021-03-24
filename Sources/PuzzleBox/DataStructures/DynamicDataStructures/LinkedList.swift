@@ -26,6 +26,7 @@ public class linkedListNode<T: Comparable> {
 public class LinkedList<T: Comparable> {
     public var head : linkedListNode<T>?
     public var tail : linkedListNode<T>?
+    public var size = 0
     
     public var isEmpty : Bool {
         head == nil
@@ -41,6 +42,7 @@ public class LinkedList<T: Comparable> {
     
     public init(from list : [T]? = nil, makeSorted : Bool? = nil) {
         if (list != nil){
+            size = list?.count
             for item in list! {
                 if makeSorted ?? false {
                     self.appendWhenSortedList(value: item)
@@ -62,6 +64,7 @@ public class LinkedList<T: Comparable> {
             }
         }
         self.tail = newNode
+        size += 1
     }
     
     public func appendWhenSortedList(value : T) {
@@ -71,6 +74,7 @@ public class LinkedList<T: Comparable> {
         if head == nil {
             self.head =  newNode
             self.tail = newNode
+            size += 1
             return
         }
         
@@ -78,6 +82,7 @@ public class LinkedList<T: Comparable> {
             if (node!.next!.value > value){
                 newNode.next = node!.next
                 node!.next = newNode
+                size += 1
                 return
             } else {
                 node = node!.next
@@ -86,7 +91,7 @@ public class LinkedList<T: Comparable> {
         
         tail?.next = newNode
         tail = newNode
-        
+        size += 1
     }
     
     public func printMyList(){
@@ -130,19 +135,8 @@ public class LinkedList<T: Comparable> {
         while (node != nil && !removed) {
             if (node!.next?.value == val){
                 node!.next = node!.next!.next
+                size -= 1
                 removed = true
-            } else {
-                node = node?.next
-            }
-        }
-    }
-    
-    public func removeAllInstancesOf(val : T){
-        var node = head
-        
-        while (node != nil){
-            if (node!.next?.value == val){
-                node!.next = node!.next!.next
             } else {
                 node = node?.next
             }
@@ -157,6 +151,7 @@ public class LinkedList<T: Comparable> {
             while (node != nil){
                 if (i == 1){
                     node!.next = node!.next?.next
+                    size -= 1
                     return
                 }
                 node = node!.next
@@ -179,7 +174,7 @@ public class LinkedList<T: Comparable> {
                     let tempNode = linkedListNode(value: value)
                     tempNode.next = node
                     prev?.next = tempNode
-                    
+                    size += 1
                     return
                 }
                 prev = node
@@ -188,6 +183,7 @@ public class LinkedList<T: Comparable> {
             }
             
             self.append(value: value)
+            size += 1
         }
         
         if (index == 0) {
