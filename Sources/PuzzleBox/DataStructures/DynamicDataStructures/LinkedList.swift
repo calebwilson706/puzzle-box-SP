@@ -159,6 +159,7 @@ public class LinkedList<T: Comparable> {
         }
         
         if (index == 0) {
+            size -= 1
             self.head = self.head?.next
         }
     }
