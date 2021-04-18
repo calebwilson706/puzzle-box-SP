@@ -39,7 +39,9 @@ public protocol Graphable {
 }
 
 public class AdjacencyList<T : Hashable> {
-    var adjacencyDict : [GraphVertex<T> : [GraphEdge<T>]] = [:]
+    public var adjacencyDict : [GraphVertex<T> : [GraphEdge<T>]] = [:]
+    
+    public init() {}
     
     public func addDirectedEdge(from source: GraphVertex<Element>, to destination: GraphVertex<Element>, weight: Double?) {
         let newEdge = GraphEdge(source: source, destination: destination, weight: weight)
