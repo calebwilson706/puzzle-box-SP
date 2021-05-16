@@ -7,7 +7,7 @@
 
 import Foundation
 
-func mostFrequent(array: [Int]) -> (value: Int, count: Int)? {
+public func mostFrequent(array: [Int]) -> (value: Int, count: Int)? {
     var counts = [Int: Int]()
 
     array.forEach { counts[$0] = (counts[$0] ?? 0) + 1 }
