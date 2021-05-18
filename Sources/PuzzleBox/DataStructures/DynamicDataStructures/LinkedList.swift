@@ -95,6 +95,7 @@ public class LinkedList<T: Comparable> {
                 newNode.next = node!.next
                 node!.next = newNode
                 size += 1
+                return
             }
             node = node!.next
         }
