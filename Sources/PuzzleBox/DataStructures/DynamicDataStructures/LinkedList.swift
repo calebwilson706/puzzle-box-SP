@@ -81,10 +81,11 @@ public class LinkedList<T: Comparable> {
             return
         }
         
-        if head!.value > value {
+        if head!.value > value && size == 1 {
             head?.next = newNode
             head = newNode
             size += 1
+            return
         }
         
         while node!.next != nil {
