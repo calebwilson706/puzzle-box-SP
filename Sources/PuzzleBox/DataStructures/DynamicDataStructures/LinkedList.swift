@@ -41,13 +41,17 @@ public class LinkedList<T: Comparable> {
     }
     
     public init(from list : [T]? = nil, makeSorted : Bool? = nil) {
-        if (list != nil){
-            for item in list! {
-                if makeSorted ?? false {
-                    self.appendWhenSortedList(value: item)
-                } else {
-                    self.append(value: item)
-                }
+        
+        guard let listOfValues = list else {
+            return
+        }
+        
+        size = listOfValues.count
+        for item in listOfValues {
+            if makeSorted ?? false {
+                self.appendWhenSortedList(value: item)
+            } else {
+                self.append(value: item)
             }
         }
     }
