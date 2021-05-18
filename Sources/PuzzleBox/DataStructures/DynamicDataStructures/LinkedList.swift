@@ -69,10 +69,13 @@ public class LinkedList<T: Comparable> {
         size += 1
     }
     
-    public func appendWhenSortedList(value : T) {
+    public func appendWhenSortedList(value : T, isASet : Bool) {
         let newNode = LinkedListNode(value: value)
         var node = head
         
+        if isASet && self.doesContain(this: value) {
+            return
+        }
         
         if (size == 0){
             head = newNode
