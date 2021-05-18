@@ -89,6 +89,7 @@ public class LinkedList<T: Comparable> {
                 size += 1
                 return
             }
+            node = node!.next
         }
         
         tail!.next = newNode
