@@ -7,15 +7,15 @@
 
 import Foundation
 
-public class linkedListNode<T: Comparable> {
+public class LinkedListNode<T: Comparable> {
     public var value : T
-    public var next : linkedListNode<T>?
+    public var next : LinkedListNode<T>?
     
     public init(value : T) {
         self.value = value
     }
     
-    public func returnLinks(theNode : linkedListNode,currString : String) -> String {
+    public func returnLinks(theNode : LinkedListNode,currString : String) -> String {
         if let nextNode = theNode.next {
             return (currString  + ("\(theNode.value)") + " -> " + returnLinks(theNode: nextNode, currString: currString))
         }
@@ -24,19 +24,19 @@ public class linkedListNode<T: Comparable> {
 }
 
 public class LinkedList<T: Comparable> {
-    public var head : linkedListNode<T>?
-    public var tail : linkedListNode<T>?
+    public var head : LinkedListNode<T>?
+    public var tail : LinkedListNode<T>?
     public var size = 0
     
     public var isEmpty : Bool {
         head == nil
     }
     
-    public var first: linkedListNode<T>? {
+    public var first: LinkedListNode<T>? {
         head
     }
     
-    public var last : linkedListNode<T>? {
+    public var last : LinkedListNode<T>? {
         tail
     }
     
@@ -57,7 +57,7 @@ public class LinkedList<T: Comparable> {
     }
     
     public func append(value : T){
-        let newNode = linkedListNode(value: value)
+        let newNode = LinkedListNode(value: value)
         
         if head == nil {
             self.head = newNode
@@ -71,37 +71,31 @@ public class LinkedList<T: Comparable> {
     }
     
     public func appendWhenSortedList(value : T) {
+        let newNode = LinkedListNode(value: value)
         var node = head
-        let newNode = linkedListNode(value: value)
         
-        if head == nil {
-            self.head =  newNode
-            self.tail = newNode
-            size += 1
-            return
-        }
         
-        if head!.value > value && size == 1 {
-            head?.next = newNode
+        if (size == 0){
             head = newNode
+            tail = newNode
             size += 1
             return
         }
         
-        while node!.next != nil {
-            if (node!.next!.value > value){
-                newNode.next = node!.next
-                node!.next = newNode
+        while (node != nil) {
+            if node!.value > value {
+                newNode.next = node
+                node = newNode
                 size += 1
                 return
-            } else {
-                node = node!.next
             }
         }
         
-        tail?.next = newNode
+        tail!.next = newNode
         tail = newNode
         size += 1
+        
+        
     }
     
     public func printMyList(){
@@ -123,7 +117,7 @@ public class LinkedList<T: Comparable> {
         return false
     }
     
-    public func get(at index : Int) -> linkedListNode<T>? {
+    public func get(at index : Int) -> LinkedListNode<T>? {
         if index >= 0 {
             var node = head
             var i = index
@@ -179,10 +173,10 @@ public class LinkedList<T: Comparable> {
         if index > 0 {
             var i = index
             var node = head
-            var prev : linkedListNode<T>? = nil
+            var prev : LinkedListNode<T>? = nil
             while (node != nil) {
                 if (i == 0){
-                    let tempNode = linkedListNode(value: value)
+                    let tempNode = LinkedListNode(value: value)
                     tempNode.next = node
                     prev?.next = tempNode
                     size += 1
@@ -198,7 +192,7 @@ public class LinkedList<T: Comparable> {
         }
         
         if (index == 0) {
-            let tempNode = linkedListNode(value: value)
+            let tempNode = LinkedListNode(value: value)
             tempNode.next = head
             
             self.head = tempNode
