@@ -82,17 +82,20 @@ public class LinkedList<T: Comparable> {
             return
         }
         
-        var prev : LinkedListNode<T>? = nil
+        if (value < node!.value) {
+            newNode.next = node
+            head = newNode
+            size += 1
+            return
+        }
         
-        while (node != nil) {
-            if node!.value > value {
-                newNode.next = node
-                node = newNode
-                prev!.next = node
+    
+        while (node!.next != nil) {
+            if node!.next!.value > value {
+                newNode.next = node!.next
+                node!.next = newNode
                 size += 1
-                return
             }
-            prev = node
             node = node!.next
         }
         
