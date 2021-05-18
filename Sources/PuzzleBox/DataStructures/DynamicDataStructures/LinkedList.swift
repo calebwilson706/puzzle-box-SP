@@ -45,8 +45,7 @@ public class LinkedList<T: Comparable> {
         guard let listOfValues = list else {
             return
         }
-        
-        size = listOfValues.count
+    
         for item in listOfValues {
             if makeSorted ?? false {
                 self.appendWhenSortedList(value: item)
