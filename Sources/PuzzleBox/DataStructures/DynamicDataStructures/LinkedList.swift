@@ -27,6 +27,7 @@ public class LinkedList<T: Comparable> {
     public var head : LinkedListNode<T>?
     public var tail : LinkedListNode<T>?
     public var size = 0
+    public var isASet : Bool
     
     public var isEmpty : Bool {
         head == nil
@@ -40,7 +41,8 @@ public class LinkedList<T: Comparable> {
         tail
     }
     
-    public init(from list : [T]? = nil, makeSorted : Bool? = nil) {
+    public init(from list : [T]? = nil, makeSorted : Bool? = nil, isSet : Bool) {
+        self.isASet = isSet
         
         guard let listOfValues = list else {
             return
@@ -69,7 +71,7 @@ public class LinkedList<T: Comparable> {
         size += 1
     }
     
-    public func appendWhenSortedList(value : T, isASet : Bool) {
+    public func appendWhenSortedList(value : T) {
         let newNode = LinkedListNode(value: value)
         var node = head
         
