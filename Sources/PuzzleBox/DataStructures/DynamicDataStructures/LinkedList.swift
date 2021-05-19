@@ -182,6 +182,19 @@ public class LinkedList<T: Comparable> {
         }
     }
     
+    public func removeFirst() -> LinkedListNode<T>? {
+        let returnValue = first!
+        self.remove(at: 0)
+        return returnValue
+    }
+    
+    public func removeLast() -> LinkedListNode<T>? {
+        let returnValue = last!
+        self.remove(at: size - 1)
+        return returnValue
+    }
+    
+    
     public func insert(value : T,at index : Int){ //if index is too large then its just appended
         if index > 0 {
             var i = index
