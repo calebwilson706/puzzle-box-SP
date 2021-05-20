@@ -210,6 +210,7 @@ public extension DoublyLinkedList {
     }
     
     mutating func rotateLeft(n : Int) {
+        
         var node = self.first
         
         var count = 1
@@ -231,6 +232,8 @@ public extension DoublyLinkedList {
         
         first = nthNode!.previous
         
+        last = nthNode
+        
         first!.next = nil
         
         nthNode!.previous = nil
@@ -251,10 +254,6 @@ public extension DoublyLinkedList {
         }
         
         let nthNode = node
-        
-        //1,2,3,4   2
-        
-        //1,2,3,4   nthNode = 2 <-> (3) <-> 4  we want 3,4,1,2,3
         
         first!.next = last
         
