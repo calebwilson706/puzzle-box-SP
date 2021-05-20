@@ -209,7 +209,7 @@ public extension DoublyLinkedList {
         }
     }
     
-    mutating func rotateRight(n : Int) {
+    mutating func rotateLeft(n : Int) {
         var node = self.first
         
         var count = 1
@@ -225,22 +225,20 @@ public extension DoublyLinkedList {
         
         let nthNode = node
         
-        while (node?.next != nil) {
-            node = node?.next
-        }
         
-        node?.next = first
         
-        first?.previous = node
+        last!.next = first
         
-        first = nthNode?.next
+        first!.previous = last
         
-        first?.previous = nil
+        first = nthNode!.next
         
-        nthNode?.next = nil
+        first!.previous = nil
+        
+        nthNode!.next = nil
     }
     
-    mutating func rotateLeft(n : Int) {
+    mutating func rotateRight(n : Int) {
         var node = self.last
         
         var count = 1
@@ -256,13 +254,9 @@ public extension DoublyLinkedList {
         
         let nthNode = node
         
-        while (node?.previous != nil) {
-            node = node?.previous
-        }
+        first?.previous = last
         
-        node?.previous = last
-        
-        last?.next = node
+        last?.next = first
         
         last = nthNode?.previous
         
