@@ -160,16 +160,17 @@ public class LinkedList<T: Comparable> {
         }
     }
     
-    public func remove(at index : Int){
+    public func remove(at index : Int) -> LinkedListNode<T>? {
         if index > 0 {
             var node = head
             var i = index
             
             while (node != nil){
                 if (i == 1){
+                    let returnValue = node!.next
                     node!.next = node!.next?.next
                     size -= 1
-                    return
+                    return returnValue
                 }
                 node = node!.next
                 i -= 1
@@ -178,8 +179,12 @@ public class LinkedList<T: Comparable> {
         
         if (index == 0) {
             size -= 1
+            let returnValue = self.head
             self.head = self.head?.next
+            return returnValue
         }
+        
+        return nil
     }
     
     public func removeFirst() -> LinkedListNode<T>? {
