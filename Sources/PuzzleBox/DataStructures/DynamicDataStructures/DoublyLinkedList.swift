@@ -252,14 +252,14 @@ public extension DoublyLinkedList {
         
         let nthNode = node
         
+        // 0 -> 1 -> 2       3 -> 4 -> 5
+        
         first!.next = last
         
         last!.previous = first
         
-        last = nthNode?.next
+        first = nthNode
         
-        last!.previous = nil
-        
-        nthNode?.next = nil
+        first?.next = nil
     }
 }
