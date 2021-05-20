@@ -252,16 +252,17 @@ public extension DoublyLinkedList {
         
         let nthNode = node
         
-        print(nthNode)
+        //1,2,3,4   2
         
-        last!.next = first
+        //1,2,3,4   nthNode = 2 <-> (3) <-> 4  we want 3,4,1,2,3
         
-        first!.previous = last
+        first!.next = last
         
-        last = nthNode!.next
-        
-        last!.previous = nil
+        last!.previous = first
         
         nthNode!.next = nil
+        
+        first = nthNode
+        
     }
 }
