@@ -225,17 +225,15 @@ public extension DoublyLinkedList {
         
         let nthNode = node
         
-        print(nthNode)
+        last!.previous = first
         
-        last!.next = first
+        first!.next = last
         
-        first!.previous = last
+        first = nthNode!.previous
         
-        first = nthNode!.next
+        first!.next = nil
         
-        first!.previous = nil
-        
-        nthNode!.next = nil
+        nthNode!.previous = nil
     }
     
     mutating func rotateRight(n : Int) {
