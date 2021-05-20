@@ -260,9 +260,13 @@ public extension DoublyLinkedList {
         
         last!.previous = first
         
-        nthNode!.next = nil
-        
         first = nthNode
+        
+        last = nthNode!.next
+        
+        last!.previous = nil
+        
+        first!.next = nil
         
     }
 }
