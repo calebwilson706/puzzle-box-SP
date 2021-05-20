@@ -214,7 +214,6 @@ public class LinkedList<T: Comparable> {
             }
             
             self.append(value: value)
-            size += 1
         }
         
         if (index == 0) {
@@ -222,6 +221,7 @@ public class LinkedList<T: Comparable> {
             tempNode.next = head
             
             self.head = tempNode
+            size += 1
         }
     }
     
