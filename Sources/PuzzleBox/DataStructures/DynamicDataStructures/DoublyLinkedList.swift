@@ -242,7 +242,7 @@ public extension DoublyLinkedList {
         var count = 1
         
         while (count < n && node != nil) {
-            node = node?.previous
+            node = node?.next
             count += 1
         }
         
@@ -252,14 +252,14 @@ public extension DoublyLinkedList {
         
         let nthNode = node
         
-        first?.previous = last
+        first!.next = last
         
-        last?.next = first
+        last!.previous = first
         
-        last = nthNode?.previous
+        last = nthNode?.next
         
-        last?.previous = nil
+        last!.previous = nil
         
-        nthNode?.previous = nil
+        nthNode?.next = nil
     }
 }
