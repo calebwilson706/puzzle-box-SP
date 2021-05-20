@@ -252,9 +252,9 @@ public extension DoublyLinkedList {
         
         let nthNode = node
         
-        first!.next = last
+        last!.next = first
         
-        last!.previous = first
+        first!.previous = last
         
         last = nthNode!.next
         
