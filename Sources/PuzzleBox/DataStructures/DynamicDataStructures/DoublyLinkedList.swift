@@ -252,6 +252,8 @@ public extension DoublyLinkedList {
         
         let nthNode = node
         
+        print(nthNode)
+        
         last!.next = first
         
         first!.previous = last
