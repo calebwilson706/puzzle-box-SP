@@ -36,11 +36,11 @@ public struct Point3D : Equatable, Hashable {
     
 }
 
-struct Point4D : Equatable, Hashable {
-    let x : Int
-    let y : Int
-    let z : Int
-    let w : Int
+public struct Point4D : Equatable, Hashable {
+    public let x : Int
+    public let y : Int
+    public let z : Int
+    public let w : Int
     
     public init(x : Int, y : Int, z : Int, w : Int){
         self.x = x
@@ -49,7 +49,7 @@ struct Point4D : Equatable, Hashable {
         self.w = w
     }
     
-    var neighbours : [Point4D] {
+    public var neighbours : [Point4D] {
         let points3D = Point3D(x: x, y: y, z: z).neighbours
         var results = [Point4D]()
         
