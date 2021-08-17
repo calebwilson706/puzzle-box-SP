@@ -49,4 +49,8 @@ public struct Point : Hashable {
         return Point(x: x + 1, y: y - 1)
     }
     
+    public func manhattanDistance(from: Point) -> Int {
+        return abs(from.x - self.x) + abs(from.y - self.y)
+    }
+    
 }
