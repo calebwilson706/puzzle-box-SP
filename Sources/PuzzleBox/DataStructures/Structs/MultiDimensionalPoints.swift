@@ -34,6 +34,17 @@ public struct Point3D : Equatable, Hashable {
         return points
     }
     
+    public func moveX(offset: Int) -> Point3D {
+        Point3D(x: x + offset, y: y, z: z)
+    }
+    
+    public func moveY(offset: Int) -> Point3D {
+        Point3D(x: x, y: y + offset, z: z)
+    }
+    
+    public func moveZ(offset: Int) -> Point3D {
+        Point3D(x: x, y: y, z: z + offset)
+    }
 }
 
 public struct Point4D : Equatable, Hashable {
