@@ -7,15 +7,15 @@
 
 import Foundation
 
-public extension Collection where Element: Equatable, Index == Int {
+public extension Array where Element: Equatable{
     
-    public func getUniqueCombinations() -> [(Element, Element)] {
+    func getUniqueCombinations() -> [(Element, Element)] {
         var result: [(Element, Element)] = []
         
         for firstIndex in (0 ..< count) {
             let first = self[firstIndex]
             
-            for secondIndex in (firstIndex + 1 ..< count) {
+            for secondIndex in firstIndex + 1 ..< count{
                 let second = self[secondIndex]
                 
                 result.append((
