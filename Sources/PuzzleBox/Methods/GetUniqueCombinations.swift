@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Collection where Element: Equatable, Index == Int {
+public extension Collection where Element: Equatable, Index == Int {
     
     func getUniqueCombinations() -> [(Element, Element)] {
         var result: [(Element, Element)] = []
