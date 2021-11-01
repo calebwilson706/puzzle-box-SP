@@ -9,7 +9,7 @@ import Foundation
 
 public extension Collection where Element: Equatable, Index == Int {
     
-    func getUniqueCombinations() -> [(Element, Element)] {
+    public func getUniqueCombinations() -> [(Element, Element)] {
         var result: [(Element, Element)] = []
         
         for firstIndex in (0 ..< count) {
