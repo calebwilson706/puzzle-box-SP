@@ -23,4 +23,8 @@ public extension StringProtocol {
         
         return false
     }
+    
+    var lines: [String] {
+        self.components(separatedBy: "\n")
+    }
 }
